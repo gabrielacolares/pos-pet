@@ -25,22 +25,23 @@
 						<p:menuitem value="Buscar" url="buscaCliente.xhtml" />
 						<p:menuitem value="Cadastrar" url="cadastraCliente.xhtml" />
 					</p:menuButton>
-					<p:menuButton value="Pet">
-						<p:menuitem value="Buscar" url="buscaPet.xhtml" />
-						<p:menuitem value="Cadastrar" url="cadastraPet.xhtml" />
+					<p:menuButton value="Produto">
+						<p:menuitem value="Buscar" url="buscaProduto.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraProduto.xhtml" />
 					</p:menuButton>
 					<p:menuButton value="Categoria">
 						<p:menuitem value="Buscar" url="buscaCategoria.xhtml" />
 						<p:menuitem value="Cadastrar" url="cadastraCategoria.xhtml" />
 					</p:menuButton>
 					
-					<p:menuButton value="Tipo">
-						<p:menuitem value="Buscar" url="buscaTipo.xhtml" />
-						<p:menuitem value="Cadastrar" url="cadastraTipo.xhtml" />
+					<p:menuButton value="Subcategoria">
+						<p:menuitem value="Buscar" url="buscaSubCategoria.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraSubCategoria.xhtml" />
 					</p:menuButton>
-					<p:menuButton value="Servico">
-						<p:menuitem value="Buscar" url="buscaServico.xhtml" />
-						<p:menuitem value="Cadastrar" url="cadastraServico.xhtml" />
+					<p:menuButton value="Vendas">
+						<p:menuitem value="Buscar" url="buscaVenda.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraVenda.xhtml" />
+						<p:menuitem value="Contas a receber" url="contasReceber.xhtml" />
 					</p:menuButton>
 					<p:menuButton value="Relatórios">
 						<p:menuitem value="Vendas" url="#" />
