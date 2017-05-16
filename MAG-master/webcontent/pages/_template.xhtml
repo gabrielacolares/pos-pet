@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head><link rel="stylesheet" type="text/css" href="resources/css/style.css" /> </h:head>
+<h:body>
+	<div align="right">
+		<h:graphicImage url="/resources/img/logo.png" />
+	</div>
+	<div>
+
+		<h:form>
+			<p:toolbar>
+				<f:facet name="left">
+				<span class="ui-separator">
+						<span class="ui-icon ui-icon-grip-dotted-vertical"/>
+					</span>
+					<p:menuButton value="Cliente">
+						<p:menuitem value="Buscar" url="buscaCliente.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraCliente.xhtml" />
+					</p:menuButton>
+					<p:menuButton value="Produto">
+						<p:menuitem value="Buscar" url="buscaProduto.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraProduto.xhtml" />
+					</p:menuButton>
+					<p:menuButton value="Categoria">
+						<p:menuitem value="Buscar" url="buscaCategoria.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraCategoria.xhtml" />
+					</p:menuButton>
+					
+					<p:menuButton value="Subcategoria">
+						<p:menuitem value="Buscar" url="buscaSubCategoria.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraSubCategoria.xhtml" />
+					</p:menuButton>
+					<p:menuButton value="Vendas">
+						<p:menuitem value="Buscar" url="buscaVenda.xhtml" />
+						<p:menuitem value="Cadastrar" url="cadastraVenda.xhtml" />
+						<p:menuitem value="Contas a receber" url="contasReceber.xhtml" />
+					</p:menuButton>
+					<p:menuButton value="Relatórios">
+						<p:menuitem value="Vendas" url="#" />
+						<p:menuitem value="Estoque" url="#" />
+						<p:menuitem value="Gastos" url="#" />
+						<p:menuitem value="Lucro" url="#" />
+					</p:menuButton>
+				</f:facet>
+				<f:facet name="right">
+					<p:commandButton action="#" value="Sair"/>
+				</f:facet>	
+			</p:toolbar>
+		</h:form>
+	</div>
+	<h:panelGrid></h:panelGrid>
+	<h:panelGrid></h:panelGrid>
+	<div>
+		<ui:insert name="conteudo" />
+	</div>
+</h:body>
+</html>

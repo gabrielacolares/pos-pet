@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+	<h:form prependId="false">
+	
+	<div align="center">
+		<p:messages id= "messages" showDetail="true"  autoUpdate="true" closable="true"/>
+		
+		<h4><p:outputLabel value="Lista de Produtos" /></h4>
+		<div align="right">
+		<p:commandLink action="#{produtoMB.cadastrar}" >
+			<p:graphicImage url="/resources/img/cadastrar.png" title="Cadastrar"/>			
+		</p:commandLink>
+		</div>
+
+	</div>
+	
+		<h:panelGrid></h:panelGrid>
+			
+		<p:dataTable var="produto" value="#{produtoMB.produtos}" paginator="true" rowsPerPageTemplate="5,10,15" rows="10" paginatorPosition="bottom" >
+			<p:column sortBy="#{produto.descricao}" headerText="Descrição">
+				<center><h:outputText value="#{produto.descricao}" /></center>
+			</p:column>
+			<p:column sortBy="#{produto.subCategoria.categoria.descricao}" headerText="Categoria">
+				<center><h:outputText
+					value="#{produto.subCategoria.categoria.descricao}" /></center>
+			</p:column>
+			
+			<p:column sortBy="#{produto.subCategoria.descricao}" headerText="Subcategoria">
+				<center><h:outputText
+					value="#{produto.subCategoria.descricao}" /></center>
+			</p:column>'
+		
+			<p:column headerText="Situação">
+				<center><h:outputText
+					value="#{produto.ativo == 'TRUE' ? 'Ativo' : 'Inativo'}" /></center>
+			</p:column>
+	
+			<p:column headerText="Ações" style="text-align: center">
+			
+				<p:commandLink action="#{produtoMB.visualizar}" >
+					<p:graphicImage url="/resources/img/glyphicons_027_search.png" title="Visualizar" />				
+					<f:setPropertyActionListener value="#{produto}" target="#{produtoMB.produto}" />
+				</p:commandLink>
+				
+				<h:outputText value="   " />
+			
+				<p:commandLink action="#{produtoMB.editar}" >
+					<p:graphicImage url="/resources/img/glyphicons_030_pencil.png" title="Editar" />				
+					<f:setPropertyActionListener value="#{produto}" target="#{produtoMB.produto}" />
+				</p:commandLink>
+				
+				<h:outputText value="   " />
+				<p:commandLink action="#{produtoMB.desativar}" >
+					<p:graphicImage url="#{produto.ativo == 'TRUE' ? '/resources/img/glyphicons_152_check.png' : '/resources/img/glyphicons_153_unchecked.png'}" title="#{produto.ativo == 'TRUE' ? 'Desativar' : 'Ativar'}" />					
+					<f:setPropertyActionListener value="#{produto}"
+							target="#{produtoMB.produto}" />
+				</p:commandLink>
+			
+			</p:column>
+			
+			
+		</p:dataTable>
+
+	 </h:form>
+	</ui:define>
+	</ui:composition>	
+</html>

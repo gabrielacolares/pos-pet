@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	 xmlns:h="http://java.sun.com/jsf/html"
+     xmlns:f="http://java.sun.com/jsf/core"
+     xmlns:p="http://primefaces.org/ui" 
+     xmlns:ui="http://java.sun.com/jsf/facelets">
+     
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+	    <h:form>
+			<p:messages id="messages" autoUpdate="true"
+					closable="true" />
+		</h:form>
+		
+		<div align="center">
+        <h:form prependId="false" >
+        
+     <!--  <h:inputHidden value="#{subCategoriaMB.subCategoria.codigoSubCategoria}" />   --> 
+        
+
+        	<p:panelGrid columns="2" columnClasses="colunaEsquerda,colunaDireita" rowClasses="normal" headerClass="tituloFormulario" styleClass="tabelaGC">
+            <f:facet name="header">
+            <p:outputLabel value="Cadastro de Subcategoria"/>
+            </f:facet>
+           
+			<p:outputLabel value="Descrição:" for="descricao"/>
+			<p:inputText id="descricao" value="#{subCategoriaMB.subCategoria.descricao}" size="40" required="true"/>
+			
+			<p:outputLabel value="Categoria: " for="categoria"/>
+			<h:panelGroup>
+			
+				<p:selectOneMenu id="categoria" value="#{subCategoriaMB.categoriaSelecionada}" required="true" filter="#{categoria.descricao}">
+					<f:selectItem itemLabel="Selecione uma categoria"/>
+					<f:selectItems value="#{categoriaMB.categoriasAtivas}" var="categoria" 
+					itemLabel="#{categoria.descricao}" itemValue="#{categoria.codigoCategoria}" />	
+					<p:ajax listener="#{subCategoriaMB.enviarCat}"/>							
+				</p:selectOneMenu>
+			
+			</h:panelGroup>
+			<p:outputLabel value="Ativo:" for="ativo" />
+					<p:selectBooleanCheckbox id="ativo"
+							value="#{subCategoriaMB.subCategoria.ativo}" />
+			<h:outputText value=""/>
+			<p:commandButton value="Salvar" actionListener="#{messagesViewMB.info}" action="#{subCategoriaMB.salvar}"/>
+			
+			</p:panelGrid>
+        </h:form>
+      </div>
+	</ui:define>
+	</ui:composition>	
+</html>
