@@ -1,0 +1,23 @@
+package br.com.mag.model;
+
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+public class Categoria {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
+	@OneToMany(mappedBy="servico",fetch=FetchType.LAZY)
+	private Servico servico;
+	private String descricao;
+
+}

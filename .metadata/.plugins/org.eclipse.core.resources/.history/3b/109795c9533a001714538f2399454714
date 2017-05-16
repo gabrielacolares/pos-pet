@@ -1,0 +1,11 @@
+package br.com.mag.model;
+
+import javax.persistence.Column;
+
+import org.hibernate.annotations.ManyToAny;
+
+public class Tipo {
+	@ManyToAny(metaColumn = @Pet)
+	private Pet pet;
+
+}

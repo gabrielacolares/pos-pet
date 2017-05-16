@@ -1,0 +1,9 @@
+package br.com.mag.model;
+
+import org.hibernate.annotations.ManyToAny;
+
+public class Tipo {
+	@ManyToAny
+	private Pet pet;
+
+}

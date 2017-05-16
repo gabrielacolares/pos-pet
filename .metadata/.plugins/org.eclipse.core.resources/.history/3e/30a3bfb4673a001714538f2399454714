@@ -1,0 +1,6 @@
+package br.com.pet.dao;
+
+
+public class CategoriaDAO extends GenericDAO <Categoria> {
+
+}

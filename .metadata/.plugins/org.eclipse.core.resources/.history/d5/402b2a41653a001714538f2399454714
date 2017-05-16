@@ -1,0 +1,12 @@
+package br.com.mag.model;
+
+import javax.persistence.FetchType;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+public class Categoria {
+	
+	@OneToMany(mappedBy="servico",fetch=FetchType.LAZY)
+	private Servico servico;
+
+}

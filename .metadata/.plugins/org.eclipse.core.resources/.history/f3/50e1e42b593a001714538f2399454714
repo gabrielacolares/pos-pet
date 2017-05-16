@@ -1,0 +1,22 @@
+package br.com.mag.model;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+/**
+ * @author gabrielacolares
+ *
+ */
+public class Cliente {
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@OneToMany
+	private Pet pet;
+	
+	@OneToMany
+	private Servico servico;
+
+}

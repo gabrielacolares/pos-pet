@@ -1,0 +1,5 @@
+package br.com.mag.model;
+
+public class Servico {
+
+}

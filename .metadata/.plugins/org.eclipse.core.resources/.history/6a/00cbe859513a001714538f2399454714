@@ -1,0 +1,12 @@
+package br.com.mag.model;
+
+import javax.persistence.Id;
+
+public class Pet {
+	@Id
+	@
+	private Long id;
+	private Tipo tipo;
+	private Cliente cliente;
+
+}

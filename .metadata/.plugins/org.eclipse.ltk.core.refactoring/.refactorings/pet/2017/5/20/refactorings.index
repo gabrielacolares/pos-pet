@@ -1,0 +1,5 @@
+1494950565347	Delete elements
+1494953955019	Encapsulate field 'descricao'
+1494959501806	Encapsulate field 'pets'
+1494960231029	Rename package 'br.com.mag.dao'
+1494960251128	Rename package 'br.com.mag.model'

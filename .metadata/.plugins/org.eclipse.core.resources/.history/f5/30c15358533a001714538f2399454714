@@ -1,0 +1,9 @@
+package br.com.mag.model;
+
+import javax.persistence.ManyToOne;
+
+public class Servico {
+	@ManyToOne
+	private Categoria categoria;
+
+}

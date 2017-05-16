@@ -1,0 +1,9 @@
+package br.com.mag.model;
+
+public class Pet {
+	
+	private Long id;
+	private Tipo tipo;
+	private Cliente cliente;
+
+}

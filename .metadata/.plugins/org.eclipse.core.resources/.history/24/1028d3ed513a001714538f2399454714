@@ -1,0 +1,18 @@
+package br.com.mag.model;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+public class Pet extends AbstractEntity{
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	private Tipo tipo;
+	private Cliente cliente;
+	@Override
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

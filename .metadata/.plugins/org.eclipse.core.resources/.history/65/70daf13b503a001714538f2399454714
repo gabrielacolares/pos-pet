@@ -1,0 +1,10 @@
+package br.com.mag.model;
+
+public class Pet {
+	
+	
+	private Log id;
+	private Tipo tipo;
+	private Cliente cliente;
+
+}

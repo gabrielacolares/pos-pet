@@ -1,0 +1,39 @@
+package br.com.mag.model;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
+
+/**
+ * @author gabrielacolares
+ *
+ */
+public class Pet extends AbstractEntity{
+	
+	private static final long serialVersionUID = 723819215844792354L;
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	private Tipo tipo;
+	
+	@Override
+	public Integer getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public Tipo getTipo() {
+		return tipo;
+	}
+	public void setTipo(Tipo tipo) {
+		this.tipo = tipo;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	
+
+}

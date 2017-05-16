@@ -1,0 +1,11 @@
+package br.com.mag.model;
+
+import javax.persistence.OneToMany;
+
+public class Cliente {
+	private Long id;
+	@OneToMany
+	private Pet pet;
+	private Servico servico;
+
+}

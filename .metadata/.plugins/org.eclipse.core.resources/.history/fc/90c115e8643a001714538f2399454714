@@ -1,0 +1,50 @@
+package br.com.mag.model;
+
+import javax.persistence.Column;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.hibernate.annotations.ManyToAny;
+
+public class Tipo extends AbstractEntity{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3765442925990569951L;
+
+	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Integer id;
+	
+	@ManyToAny(fetch=FetchType.LAZY)
+	private Pet pet;
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	
+	
+	
+	
+
+}
