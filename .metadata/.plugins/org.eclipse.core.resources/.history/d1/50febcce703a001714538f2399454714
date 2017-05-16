@@ -1,0 +1,8 @@
+package br.com.pet.dao;
+
+import br.com.mag.business.Cliente;
+import br.com.mag.business.dao.GenericDAO;
+
+public class ClienteDAO extends GenericDAO<Cliente> {
+
+}

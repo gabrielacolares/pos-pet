@@ -1,0 +1,30 @@
+package br.com.pet.teste;
+
+import javax.persistence.EntityManager;
+
+import br.com.pet.model.Cliente;
+import br.com.pet.util.JPAUtil;
+
+
+public class PopulaClientetTeste {
+
+	public static void main(String[] args) {
+
+		EntityManager mn = new JPAUtil().getEntityManager();
+		mn.getTransaction().begin();
+
+		Cliente cliente = new Cliente();
+		
+		cliente.setNome("Ana Claudia Reis");
+		cliente.setCpf("12245679896");
+		cliente.setRg(10102109);
+		// cliente.setDataNascimento(Calendar."2014");
+		cliente.setSituacaoCliente(TipoSituacaoCliente.ADIPLENTE);
+
+		
+		mn.persist(cliente);
+		mn.getTransaction().commit();
+		mn.close();
+	}
+
+}

@@ -1,15 +1,19 @@
 package br.com.pet.model;
 
 import java.util.Calendar;
+import java.util.List;
 
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@Entity
 public class Servico extends AbstractEntity{
 	/**
 	 * 
@@ -18,26 +22,67 @@ public class Servico extends AbstractEntity{
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
 	@Temporal(TemporalType.DATE)
-	
-
-	
-	private Categoria categoria;
-	private Cliente cliente;
 	private Calendar data;
 	private Double hora;
 	private String detalhamento;
 	
+	@ManyToOne
+	private Categoria categoria;
 	
+	@ManyToOne
+	private Pet pet;
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	public Pet getPet() {
+		return pet;
+	}
+
+	public void setPet(Pet pet) {
+		this.pet = pet;
+	}
+
+	public Calendar getData() {
+		return data;
+	}
+
+	public void setData(Calendar data) {
+		this.data = data;
+	}
+
+	public Double getHora() {
+		return hora;
+	}
+
+	public void setHora(Double hora) {
+		this.hora = hora;
+	}
+
+	public String getDetalhamento() {
+		return detalhamento;
+	}
+
+	public void setDetalhamento(String detalhamento) {
+		this.detalhamento = detalhamento;
+	}
+
+	
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
-	
-	
 
 }

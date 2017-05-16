@@ -1,12 +1,19 @@
 package br.com.pet.model;
 
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 /**
  * @author gabrielacolares
  *
  */
+@Entity
 public class Pet extends AbstractEntity{
 	
 	private static final long serialVersionUID = 723819215844792354L;
@@ -15,9 +22,7 @@ public class Pet extends AbstractEntity{
 	private String raca;
 	private String observacao;
 	
-	
-	private Cliente cliente;
-	
+	@ManyToOne
 	private Tipo tipo;
 	
 	public Tipo getTipo() {
@@ -39,12 +44,7 @@ public class Pet extends AbstractEntity{
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
+
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub

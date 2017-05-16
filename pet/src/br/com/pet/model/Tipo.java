@@ -1,7 +1,6 @@
 package br.com.pet.model;
 
-import java.util.List;
-
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,14 +9,15 @@ import javax.persistence.Id;
  * @author gabrielacolares
  *
  */
+@Entity
 public class Tipo extends AbstractEntity{
 
 	private static final long serialVersionUID = 3765442925990569951L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
-	private List<Pet> pets;
+	private String nome;
+
 
 	@Override
 	public Long getId() {
@@ -28,16 +28,6 @@ public class Tipo extends AbstractEntity{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
-	}
-
-
-	public List<Pet> getPets() {
-		return pets;
-	}
-
-
-	public void setPets(List<Pet> pets) {
-		this.pets = pets;
 	}
 	
 
@@ -52,6 +42,16 @@ public class Tipo extends AbstractEntity{
 	public int hashCode() {
 		// TODO Auto-generated method stub
 		return super.hashCode();
+	}
+
+
+	public String getNome() {
+		return nome;
+	}
+
+
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
 

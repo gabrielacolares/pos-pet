@@ -1,5 +1,7 @@
 package br.com.pet.dao;
 
-public class ClienteDAO {
+import br.com.pet.model.Cliente;
+
+public class ClienteDAO extends GenericDAO<Cliente> {
 
 }

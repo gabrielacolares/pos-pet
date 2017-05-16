@@ -1,17 +1,15 @@
 package br.com.mag.teste;
-
-import java.util.Calendar;
-import java.util.List;
-
 import javax.persistence.EntityManager;
-
 import br.com.mag.business.Cliente;
-import br.com.mag.business.Endereco;
 import br.com.mag.business.enumeration.TipoSituacaoCliente;
 import br.com.mag.util.JPAUtil;
 
 //import com.sun.security.ntlm.Client;
 
+/**
+ * @author gabrielacolares
+ *
+ */
 public class PopulaCliente {
 
 	public static void main(String[] args) {
@@ -21,9 +19,9 @@ public class PopulaCliente {
 
 		Cliente cliente = new Cliente();
 		
-		cliente.setNome("Ana Claudia Reis");
-		cliente.setCpf("12245679896");
-		cliente.setRg(10102109);
+		cliente.setNome("Gabriela Colares Rodrigues");
+		cliente.setCpf("00037836269");
+		cliente.setRg(20689934);
 		// cliente.setDataNascimento(Calendar."2014");
 		cliente.setSituacaoCliente(TipoSituacaoCliente.ADIPLENTE);
 

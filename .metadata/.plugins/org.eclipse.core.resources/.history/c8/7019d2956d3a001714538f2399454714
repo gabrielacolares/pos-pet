@@ -1,0 +1,28 @@
+package br.com.pet.teste;
+
+import javax.persistence.EntityManager;
+
+import br.com.pet.model.Cliente;
+import br.com.pet.util.JPAUtil;
+
+
+public class PopulaClientetTeste {
+
+	public static void main(String[] args) {
+
+		EntityManager mn = new JPAUtil().getEntityManager();
+		mn.getTransaction().begin();
+
+		Cliente cliente = new Cliente();
+		
+		cliente.setNome("Gabriela Colares Rodrigues");
+		cliente.setCpf("00037836269");
+		cliente.setRg(20689934);
+		// cliente.setDataNascimento(Calendar."2014");
+
+		mn.persist(cliente);
+		mn.getTransaction().commit();
+		mn.close();
+	}
+
+}

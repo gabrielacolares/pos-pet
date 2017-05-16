@@ -2,7 +2,7 @@ package br.com.pet.model;
 
 import java.util.List;
 
-import javax.persistence.FetchType;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -12,6 +12,7 @@ import javax.persistence.OneToMany;
  * @author gabrielacolares
  *
  */
+@Entity
 public class Cliente extends AbstractEntity{
 	/**
 	 * 
@@ -23,16 +24,9 @@ public class Cliente extends AbstractEntity{
 	
 	private String nome;
 	private String cpf;
-	private String rg;
+	private int rg;
 	private String telefone;
 	private String endereco;
-	
-	
-	@OneToMany(mappedBy="cliente",fetch=FetchType.LAZY)
-	private List<Pet> pets;
-	
-	@OneToMany(mappedBy="cliente",fetch=FetchType.LAZY)
-	private List<Servico> servicos;
 
 	public String getNome() {
 		return nome;
@@ -50,12 +44,12 @@ public class Cliente extends AbstractEntity{
 		this.cpf = cpf;
 	}
 
-	public String getRg() {
+	public int getRg() {
 		return rg;
 	}
 
-	public void setRg(String rg) {
-		this.rg = rg;
+	public void setRg(int i) {
+		this.rg = i;
 	}
 
 	public String getTelefone() {
@@ -74,24 +68,6 @@ public class Cliente extends AbstractEntity{
 		this.endereco = endereco;
 	}
 
-
-	public List<Pet> getPets() {
-		return pets;
-	}
-
-	public void setPets(List<Pet> pets) {
-		this.pets = pets;
-	}
-
-	
-
-	public List<Servico> getServicos() {
-		return servicos;
-	}
-
-	public void setServicos(List<Servico> servicos) {
-		this.servicos = servicos;
-	}
 
 	@Override
 	public Long getId() {
