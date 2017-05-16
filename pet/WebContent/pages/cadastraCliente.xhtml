@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+
+		<h:form prependId="false">
+
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<div align="center">
+				<h4>
+					<p:outputLabel value="Cadastro de Clientes" />
+				</h4>
+			</div>
+					<h:panelGrid columns="6" cellpadding="10">
+						<p:outputLabel for="nome" value="Nome" />
+						<p:inputText id="nome" value="#{clienteMB.cliente.nome}"
+							required="true" />
+						<p:outputLabel for="cpf" value="CPF" />
+						<p:inputMask id="cpf" value="#{clienteMB.cliente.cpf}"
+							mask="999.999.999-99" required="true" />
+							
+						<p:outputLabel for="rg" value="RG" />
+						<p:inputText id="rg" value="#{clienteMB.cliente.rg}" />
+						
+						<p:outputLabel for="logradouro" value="Endereço" />
+						<p:inputText id="logradouro" name="lgradouro"
+							value="#{clienteMB.cliente.endereco}" />
+							
+						<p:outputLabel for="telefone" value="Telefone" />
+						<p:inputText id="telefone" name="telefone"
+							value="#{clienteMB.cliente.telefone}" />
+					</h:panelGrid>
+	
+			<p:outputLabel value="* campos obrigatórios" />
+			<center>
+				<p:commandButton id="salvar" value="Salvar" ajax="false"
+					actionListener="#{messagesViewMB.info}" action="#{clienteMB.salvar}">
+				</p:commandButton>
+			</center>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>
