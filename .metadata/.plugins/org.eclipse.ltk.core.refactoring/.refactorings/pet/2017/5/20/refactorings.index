@@ -8,3 +8,4 @@
 1494968753978	Encapsulate field 'servicos'
 1494968945138	Encapsulate field 'id_categoria'
 1494969066480	Encapsulate field 'id_cliente'
+1494970652284	Rename type 'Categoria'
