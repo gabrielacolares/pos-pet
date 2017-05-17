@@ -9,6 +9,11 @@ import br.com.pet.model.Cliente;
 
 public class ClienteDAO extends GenericDAO<Cliente> {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public List<Cliente> pesquisar(String nome){
 		
 		StringBuffer sql = new StringBuffer ("Select c from Cliente c where c.nome like '%" + nome +"%'");
@@ -33,23 +38,5 @@ public class ClienteDAO extends GenericDAO<Cliente> {
 		
 		return clientes;
 	} 
-	
-	public List<Cliente> listarAtivos(){
-		List<Cliente> clientes = new ArrayList<Cliente>();
-		StringBuffer sql = new StringBuffer("Select c from Cliente c ");
-		
-		sql.append(" WHERE c.situacaoCliente = ADIPLENTE");
-		
-		Query query = getEntityManager().createQuery(sql.toString());
-		
-		clientes = query.getResultList();
-		
-		return clientes;
-	} 
-	
-	public void buscarCategoria(Cliente id){
-		getPrimaryKey(id);
-		
-	}
 
 }

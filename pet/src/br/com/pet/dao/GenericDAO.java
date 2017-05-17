@@ -42,7 +42,6 @@ public abstract class GenericDAO<T extends AbstractEntity> implements
 		entityManager.remove(entityManager.getReference(persistentClass, entity.getId()));
 		entityManager.getTransaction().commit();
 	}
-	
 	public List<T> listarTodos(){
 		Query query = entityManager.createQuery("Select t from " + persistentClass.getName() + " t");
 		List<T> lista = query.getResultList();
@@ -53,8 +52,8 @@ public abstract class GenericDAO<T extends AbstractEntity> implements
 		return entityManager.find(persistentClass, entity.getId());
 	}
 	
-	public T getPrimaryKey(Long id){
-		return entityManager.find(persistentClass, id);
+	public T getPrimaryKey(Integer codigo){
+		return entityManager.find(persistentClass, codigo);
 	}
 
 	public EntityManager getEntityManager(){

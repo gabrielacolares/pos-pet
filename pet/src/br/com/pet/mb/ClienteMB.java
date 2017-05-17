@@ -20,6 +20,7 @@ import br.com.pet.util.Filtro;
 import br.com.pet.util.FiltroCliente;
 
 
+
 @ManagedBean
 @SessionScoped
 public class ClienteMB implements Serializable {
@@ -28,7 +29,7 @@ public class ClienteMB implements Serializable {
 
 	private Cliente cliente;
 	private ClienteDAO clienteDao;
-	// private List<Cliente> clientes;
+
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 
 	private FiltroCliente clientesF = new FiltroCliente();
@@ -97,22 +98,23 @@ public class ClienteMB implements Serializable {
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
-	
-	public List<Cliente> getClientes() {
+
+	public List<Cliente> getClientesAtivos() {
 		if(clientes == null){
 			clientes = new ArrayList<Cliente>();
 		}
 		
 		if(clientes.isEmpty()){
 			try{
-				List<Cliente> clientes= clienteDao.listarTodos();
-				
+				List<Cliente> clientes = clienteDao.listarTodos();
+			
 			}catch(Exception e){
 				e.printStackTrace();
 			}
 		}
 		return clientes;
 	}
+
 
 	public String salvar() throws DAOException {
 
@@ -142,7 +144,7 @@ public class ClienteMB implements Serializable {
 	public String editar() throws DAOException {
 
 		cliente = clienteDao.getPrimaryKey(cliente);
-		return "/cadastraCliente.faces";
+		return "/pages/cadastraCliente.faces?faces-redirect=true";
 	}
 
 	public String cadastrar() {
@@ -154,7 +156,7 @@ public class ClienteMB implements Serializable {
 
 		cliente = clienteDao.getPrimaryKey(cliente);
 
-		return "/visualizaCliente.faces";
+		return "/pages/visualizaCliente.faces";
 	}
 
 
@@ -176,9 +178,10 @@ public class ClienteMB implements Serializable {
 
 	}
 
+
 	public String voltar() {
 
-		return "/buscaCliente.faces";
+		return "/pages/buscaCliente.faces";
 	}
 
 }
