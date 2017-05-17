@@ -19,7 +19,7 @@ public class Categoria extends AbstractEntity{
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	private String descricao;
 
@@ -34,7 +34,7 @@ public class Categoria extends AbstractEntity{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 	@Override
 	public boolean equals(Object obj) {

@@ -20,7 +20,7 @@ public class Cliente extends AbstractEntity{
 	private static final long serialVersionUID = 1L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	private String nome;
 	private String cpf;
@@ -70,12 +70,6 @@ public class Cliente extends AbstractEntity{
 
 
 	@Override
-	public Long getId() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		return super.equals(obj);
@@ -104,8 +98,11 @@ public class Cliente extends AbstractEntity{
 		// TODO Auto-generated method stub
 		super.finalize();
 	}
-	
-	
-	
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return id;
+	}
 
 }

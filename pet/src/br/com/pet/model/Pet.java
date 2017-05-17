@@ -18,7 +18,7 @@ public class Pet extends AbstractEntity{
 	
 	private static final long serialVersionUID = 723819215844792354L;
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String raca;
 	private String observacao;
 	
@@ -48,7 +48,7 @@ public class Pet extends AbstractEntity{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 	@Override
 	public boolean equals(Object obj) {

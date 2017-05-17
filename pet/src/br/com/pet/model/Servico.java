@@ -21,7 +21,7 @@ public class Servico extends AbstractEntity{
 	private static final long serialVersionUID = -4274419335294566212L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	@Temporal(TemporalType.DATE)
 	private Calendar data;
 	private Double hora;
@@ -82,7 +82,7 @@ public class Servico extends AbstractEntity{
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 }

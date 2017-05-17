@@ -3,7 +3,6 @@ package br.com.pet.dao;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -54,9 +53,9 @@ public abstract class GenericDAO<T extends AbstractEntity> implements
 		return entityManager.find(persistentClass, entity.getId());
 	}
 	
-	/*public T getPrimaryKey(K key){
-		return entityManager.find(persistentClass, key);
-	}*/
+	public T getPrimaryKey(Long id){
+		return entityManager.find(persistentClass, id);
+	}
 
 	public EntityManager getEntityManager(){
 		return entityManager;

@@ -15,14 +15,14 @@ public class Tipo extends AbstractEntity{
 	private static final long serialVersionUID = 3765442925990569951L;
 
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	private String nome;
 
 
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub
-		return null;
+		return id;
 	}
 
 
