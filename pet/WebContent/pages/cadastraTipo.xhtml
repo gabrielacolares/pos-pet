@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+
+		<h:form prependId="false">
+
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<div align="center">
+				<h4>
+					<p:outputLabel value="Cadastro de Tipos" />
+				</h4>
+			</div>
+					<h:panelGrid columns="6" cellpadding="10">
+						<p:outputLabel for="nome" value="Nome" />
+						<p:inputText id="nome" value="#{tipoMB.tipo.nome}"
+							required="true" />
+					</h:panelGrid>
+	
+			<p:outputLabel value="* campos obrigatórios" />
+			<center>
+				<p:commandButton id="salvar" value="Salvar" ajax="false"
+					actionListener="#{messagesViewMB.info}" action="#{tipoMB.salvar}">
+				</p:commandButton>
+			</center>
+
+		</h:form>
+
+	</ui:define>
+</ui:composition>
+
+</html>

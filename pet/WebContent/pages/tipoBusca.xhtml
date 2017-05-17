@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+		<h:form prependId="false">
+		
+			<div align = "center">
+			<p:messages id= "messages" showDetail="true" autoUpdate="true" closable="true"/>
+
+			<h4>
+				<p:outputLabel value="Lista de Tipos" />
+			</h4>
+			<div align="right">
+				<p:commandLink action="#{tipoMB.cadastrar}">
+					<p:graphicImage url="/resources/img/cadastrar.png"
+						title="Cadastrar" />
+				</p:commandLink>
+			</div>
+			</div>
+			
+	<h:panelGrid></h:panelGrid>
+			<h:panelGrid columns="3">
+				<p:inputText value="#{tipoMB.filtro.nome}" id="tipo" />
+				<p:commandButton value="Consultar" update="lista" process="@form" />
+			</h:panelGrid>
+	<h:panelGrid></h:panelGrid>
+	
+			<p:dataTable value="#{tipoMB.model}" lazy="true" var="tipo"
+				paginator="true" rows="10" paginatorPosition="bottom" id="lista">
+
+				<p:column headerText="Nome" sortBy="#{tipo.nome}">
+					<p:outputLabel value="#{tipo.nome}" />
+				</p:column>
+			
+				<p:column headerText="Ações" style="text-align: center">
+
+					<p:commandLink action="#{tipoMB.visualizar}">
+						<p:graphicImage url="/resources/img/glyphicons_027_search.png"
+							title="Visualizar" />
+						<f:setPropertyActionListener value="#{tipo}"
+							target="#{tipoMB.tipo}" />
+					</p:commandLink>
+
+					<h:outputText value="   " />
+
+					<p:commandLink action="#{tipoMB.editar}">
+						<p:graphicImage url="/resources/img/glyphicons_030_pencil.png"
+							title="Editar" />
+						<f:setPropertyActionListener value="#{tipo}"
+							target="#{tipoMB.tipo}" />
+					</p:commandLink>
+
+					<h:outputText value="   " />
+				</p:column>
+
+			</p:dataTable>
+
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
