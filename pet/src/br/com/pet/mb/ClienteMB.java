@@ -37,6 +37,8 @@ public class ClienteMB implements Serializable {
 	private Filtro filtro = new Filtro();
 	private LazyDataModel<Cliente> model;
 	private SelectableDataModel<Cliente> select;
+	private List<Cliente> clientesAtivos;
+	private Integer clienteSelecionado;
 
 	public ClienteMB() {
 		model = new LazyDataModel<Cliente>() {
@@ -81,6 +83,14 @@ public class ClienteMB implements Serializable {
 			}
 		};*/
 
+	}
+	
+	public Integer getClienteSelecionado() {
+		return clienteSelecionado;
+	} 
+	
+	public void setClienteSelecionado(Integer clienteSelecionado) {
+		this.clienteSelecionado = clienteSelecionado;
 	}
 
 	public Filtro getFiltro() {

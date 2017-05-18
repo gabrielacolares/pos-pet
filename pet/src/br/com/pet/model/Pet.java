@@ -1,30 +1,43 @@
 package br.com.pet.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+
 /**
  * @author gabrielacolares
  *
  */
+
 @Entity
 public class Pet extends AbstractEntity{
 	
 	private static final long serialVersionUID = 723819215844792354L;
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	private String nome;
 	private String raca;
+	private String cor;
 	private String observacao;
 	
 	@ManyToOne
 	private Tipo tipo;
 	
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCor() {
+		return cor;
+	}
+	public void setCor(String cor) {
+		this.cor = cor;
+	}
 	public Tipo getTipo() {
 		return tipo;
 	}
