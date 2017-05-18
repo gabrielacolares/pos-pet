@@ -152,7 +152,7 @@ public class PetMB implements Serializable {
 
 	public String cadastrar() {
 		pet = new Pet();
-		return "/cadastraPet.faces?faces-redirect=true";
+		return "/pages/cadastraPet.faces?faces-redirect=true";
 	}
 
 	public String visualizar() throws DAOException {

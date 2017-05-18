@@ -19,13 +19,14 @@
 				</h4>
 			</div>
 					<h:panelGrid columns="6" cellpadding="10">
+					
 						<p:outputLabel value="Cliente" for="cliente"/>
 						<h:panelGroup>
 							<p:selectOneMenu id="cliente" value="#{petMB.clienteSelecionado}" required="true">
 								<f:selectItem itemLabel="Selecione um cliente"/>
-								<f:selectItems value="#{clienteMB.clientesAtivos}" var="cliente" 
-								itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
-								<p:ajax listener="#{petMB.enviarCli}"/>													
+								<f:selectItems var="c" value="#{clienteMB.clientesAtivos}" 
+								itemLabel="#{c.nome}" itemValue="#{c.id}" />
+																					
 							</p:selectOneMenu>	
 						</h:panelGroup>
 			
@@ -37,22 +38,24 @@
 						<h:panelGroup>
 							<p:selectOneMenu id="tipo" value="#{petMB.tipoSelecionado}" required="true">
 								<f:selectItem itemLabel="Selecione um tipo"/>
-								<f:selectItems value="#{tipoMB.tiposAtivos}" var="tipo" 
-								itemLabel="#{tipo.nome}" itemValue="#{tipo.id}" />													
-								<p:ajax listener="#{petMB.enviarTi}"/>	
+								<f:selectItems value="#{tipoMB.tiposAtivos}" var="t" 
+								itemLabel="#{t.nome}" itemValue="#{t.id}" />												
+								
 							</p:selectOneMenu>	
 						</h:panelGroup>
 							
 						<p:outputLabel for="raca" value="Raça" />
-						<p:inputText id="raca" value="#{petMB.pet.raca}" />
+						<p:inputText id="raca" value="#{petMB.pet.raca}" required="true" />
 						
 						<p:outputLabel for="cor" value="Cor" />
 						<p:inputText id="cor" name="cor"
 							value="#{petMB.pet.cor}" />
 							
 						<p:outputLabel for="observacao" value="Observação" />
-						<p:inputText id="observacao" name="observacao"
+						<p:inputTextarea rows="6" cols="33" id="observacao" name="observacao"
 							value="#{petMB.pet.observacao}" />
+							
+							
 					</h:panelGrid>
 	
 			<p:outputLabel value="* campos obrigatórios" />
