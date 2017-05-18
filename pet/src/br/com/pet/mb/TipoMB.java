@@ -101,15 +101,15 @@ public class TipoMB implements Serializable {
 		this.tipo = tipo;
 	}
 
-	public List<Tipo> getTiposAtivos() {
+	public List<Tipo> getTipos() {
 		if(tipos == null){
 			tipos = new ArrayList<Tipo>();
 		}
 		
 		if(tipos.isEmpty()){
 			try{
-
-				List<Tipo> tipos = tipoDao.listarTodos();
+				TipoDAO dao = new TipoDAO();
+				tipos = dao.listarTodos();
 			
 			}catch(Exception e){
 				e.printStackTrace();
@@ -147,7 +147,7 @@ public class TipoMB implements Serializable {
 	public String editar() throws DAOException {
 
 		tipo = tipoDao.getPrimaryKey(tipo);
-		return "/pages/cadastraTipo.faces?faces-redirect=true";
+		return "/cadastraTipo.faces?faces-redirect=true";
 	}
 
 	public String cadastrar() {
@@ -160,7 +160,7 @@ public class TipoMB implements Serializable {
 		tipo = tipoDao.getPrimaryKey(tipo);
 
 
-		return "/pages/visualizaTipo.faces";
+		return "/visualizaTipo.faces";
 	}
 
 

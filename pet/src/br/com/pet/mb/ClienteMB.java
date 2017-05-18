@@ -37,7 +37,7 @@ public class ClienteMB implements Serializable {
 	private Filtro filtro = new Filtro();
 	private LazyDataModel<Cliente> model;
 	private SelectableDataModel<Cliente> select;
-	private List<Cliente> clientesAtivos;
+	//private List<Cliente> clientesAtivos;
 	private Integer clienteSelecionado;
 
 	public ClienteMB() {
@@ -109,14 +109,15 @@ public class ClienteMB implements Serializable {
 		this.cliente = cliente;
 	}
 
-	public List<Cliente> getClientesAtivos() {
+	public List<Cliente> getClientes() {
 		if(clientes == null){
 			clientes = new ArrayList<Cliente>();
 		}
 		
 		if(clientes.isEmpty()){
 			try{
-				List<Cliente> clientes = clienteDao.listarTodos();
+				
+				clientes = clienteDao.listarTodos();
 			
 			}catch(Exception e){
 				e.printStackTrace();

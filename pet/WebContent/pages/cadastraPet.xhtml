@@ -20,15 +20,16 @@
 			</div>
 					<h:panelGrid columns="6" cellpadding="10">
 					
-						<p:outputLabel value="Cliente" for="cliente"/>
+						<p:outputLabel value="Dono do Pet" for="cliente"/>
 						<h:panelGroup>
-							<p:selectOneMenu id="cliente" value="#{petMB.clienteSelecionado}" required="true">
-								<f:selectItem itemLabel="Selecione um cliente"/>
-								<f:selectItems var="c" value="#{clienteMB.clientesAtivos}" 
+							<p:selectOneMenu id="cliente" value="#" required="true">
+								<f:selectItem itemLabel="Selecione o dono do pet"/>
+								<f:selectItems value="#{clienteMB.clientes}" var="c"
 								itemLabel="#{c.nome}" itemValue="#{c.id}" />
 																					
 							</p:selectOneMenu>	
 						</h:panelGroup>
+			 
 			
 						
 						<p:outputLabel for="nome" value="Nome do Pet" />
@@ -38,7 +39,7 @@
 						<h:panelGroup>
 							<p:selectOneMenu id="tipo" value="#{petMB.tipoSelecionado}" required="true">
 								<f:selectItem itemLabel="Selecione um tipo"/>
-								<f:selectItems value="#{tipoMB.tiposAtivos}" var="t" 
+								<f:selectItems value="#{tipoMB.tipos}" var="t" 
 								itemLabel="#{t.nome}" itemValue="#{t.id}" />												
 								
 							</p:selectOneMenu>	

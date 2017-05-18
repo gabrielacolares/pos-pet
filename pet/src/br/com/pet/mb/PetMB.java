@@ -160,7 +160,7 @@ public class PetMB implements Serializable {
 		pet = petDao.getPrimaryKey(pet);
 		clienteSelecionado = pet.getCliente().getId().intValue();
 		
-		return "/pages/visualizaPet.faces";
+		return "/pages/cadastraPet.faces";
 	}
 
 
