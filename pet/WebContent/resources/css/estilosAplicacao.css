@@ -23,7 +23,7 @@
 }
 
 .colunaDireita{
-    text-align: left;    
+    text-align: inherit;    
 }
 .colunaEsquerda{
     text-align: right;    

@@ -8,7 +8,16 @@ public class Filtro implements Serializable {
 	
 	private String descricao;
 	private String nome;
+	private String detalhamento; 
 	
+	public String getDetalhamento() {
+		return detalhamento;
+	}
+
+	public void setDetalhamento(String detalhamento) {
+		this.detalhamento = detalhamento;
+	}
+
 	private int primeiroRegistro;
 	private int quantidadeRegistros;
 	private String propriedadeOrdenacao;

@@ -1,17 +1,22 @@
 package br.com.pet.model;
 
-import java.util.Calendar;
-import java.util.List;
+
 
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+ 
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
 
 @Entity
 public class Servico extends AbstractEntity{
@@ -23,7 +28,7 @@ public class Servico extends AbstractEntity{
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@Temporal(TemporalType.DATE)
-	private Calendar data;
+	private Date data;
 	private Double hora;
 	private String detalhamento;
 	
@@ -49,11 +54,11 @@ public class Servico extends AbstractEntity{
 		this.pet = pet;
 	}
 
-	public Calendar getData() {
+	public Date getData() {
 		return data;
 	}
 
-	public void setData(Calendar data) {
+	public void setData(Date data) {
 		this.data = data;
 	}
 
@@ -84,5 +89,18 @@ public class Servico extends AbstractEntity{
 		// TODO Auto-generated method stub
 		return id;
 	}
+	
+	public void onDateSelect(SelectEvent event) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
+    }
+     
+    public void click() {
+        RequestContext requestContext = RequestContext.getCurrentInstance();
+         
+        requestContext.update("form:display");
+        requestContext.execute("PF('dlg').show()");
+    }
 
 }
