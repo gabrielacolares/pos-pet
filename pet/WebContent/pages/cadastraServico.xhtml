@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="/pages/_template.xhtml">
+	<ui:define name="conteudo">
+
+		<h:form prependId="false">
+
+			<p:messages id="messages" showDetail="true" autoUpdate="true"
+				closable="true" />
+			<div align="center">
+				<h4>
+					<p:outputLabel value="Cadastro de Serviços" />
+				</h4>
+			</div>
+					<h:panelGrid columns="6" cellpadding="10">
+						<p:outputLabel for="data" value="Data" />
+						<p:calendar id="data" value="#{servicoMB.servico.data}" showOn="button" />
+						
+						<p:outputLabel for="hora" value="Hora" />
+						<p:inputText id="hora" value="#{servicoMB.servico.hora}" />
+							
+						<p:outputLabel for="detalhamento" value="Detalhamento" />
+						<p:inputText id="detalhamento" value="#{servicoMB.servico.detalhamento}" />
+					</h:panelGrid>
+	
+			<p:outputLabel value="* campos obrigatórios" />
+			<center>
+				<p:commandButton id="salvar" value="Salvar" ajax="false"
+					actionListener="#{messagesViewMB.info}" action="#{servicoMB.salvar}">
+				</p:commandButton>
+			</center>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+</html>
