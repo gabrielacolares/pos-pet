@@ -16,26 +16,29 @@ public class TipoDAO extends GenericDAO<Tipo> {
 
 	public List<Tipo> pesquisar(String nome){
 		
-		StringBuffer sql = new StringBuffer ("Select t from Tipo t where t.nome like '%" + nome +"%'");
+
+		StringBuffer sql = new StringBuffer ("Select c from Tipo c where c.nome like '%" + nome +"%'");
 		Query query = getEntityManager().createQuery(sql.toString());
-		List<Tipo> lista = query.getResultList();
+		List<Tipo> lista = query.getResultList(); 
 		return lista;
 	}
 	
 	public List<Tipo> listar(Tipo tipo){
 		List<Tipo> tipos = new ArrayList<Tipo>();
-		StringBuffer sql = new StringBuffer("Select t from Tipo t ");
+
+		StringBuffer sql = new StringBuffer("Select c from Tipo c ");
 		
-//		sql.append(" WHERE c.ativo = ").append(cliente.isAtivo());
+		
+//		sql.append(" WHERE c.ativo = ").append(tipo.isAtivo());
 		
 		if (tipo.getNome() != null) {
-			sql.append(" AND t.nome LIKE '%").append(tipo.getNome()).append("%'");
+			sql.append(" AND c.nome LIKE '%").append(tipo.getNome()).append("%'");
 		}
 		
 		Query query = getEntityManager().createQuery(sql.toString());
 		
 		tipos = query.getResultList();
-		
+
 		return tipos;
 	} 
 

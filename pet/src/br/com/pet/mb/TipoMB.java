@@ -13,8 +13,9 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SelectableDataModel;
 import org.primefaces.model.SortOrder;
 
-import br.com.pet.dao.TipoDAO;
+
 import br.com.pet.dao.DAOException;
+import br.com.pet.dao.TipoDAO;
 import br.com.pet.model.Tipo;
 import br.com.pet.util.Filtro;
 import br.com.pet.util.FiltroTipo;
@@ -37,8 +38,7 @@ public class TipoMB implements Serializable {
 	private Filtro filtro = new Filtro();
 	private LazyDataModel<Tipo> model;
 	private SelectableDataModel<Tipo> select;
-	private List<Tipo> tiposAtivos;
-	private Integer tipoSelecionado;
+
 	public TipoMB() {
 		model = new LazyDataModel<Tipo>() {
 
@@ -60,10 +60,31 @@ public class TipoMB implements Serializable {
 			}
 		};
 		tipo = new Tipo();
-		tipoDao = new TipoDAO();		
+
+		tipoDao = new TipoDAO();
+		
+/*		select = new SelectableDataModel<Cliente>() {
+						
+			@Override
+			public Object getRowKey(Cliente cliente) {
+				return cliente.getEnderecos();
+			}
+			
+			@Override
+			public Cliente getRowData(String rowKey) {
+		        List<Cliente> cli = (List<Cliente>) getWrappedData();
+
+		        for(Cliente c : cli) {
+		            if(c.getCodigoCliente().equals(rowKey))
+		                return c;
+		        }
+
+		        return null;
+			}
+		};*/
 
 	}
-	
+
 	public Filtro getFiltro() {
 		return filtro;
 	}
@@ -87,7 +108,8 @@ public class TipoMB implements Serializable {
 		
 		if(tipos.isEmpty()){
 			try{
-				List<Tipo> clientes = tipoDao.listarTodos();
+
+				List<Tipo> tipos = tipoDao.listarTodos();
 			
 			}catch(Exception e){
 				e.printStackTrace();
@@ -96,23 +118,14 @@ public class TipoMB implements Serializable {
 		return tipos;
 	}
 
-	
-
-	public Integer getTipoSelecionado() {
-		return tipoSelecionado;
-	}
-
-	public void setTipoSelecionado(Integer tipoSelecionado) {
-		this.tipoSelecionado = tipoSelecionado;
-	}
-
 	public String salvar() throws DAOException {
 
 		RequestContext context = RequestContext.getCurrentInstance();
 
 		try {
 			if (tipo == null) {
-				// enviar mensagem de alerta erro
+
+				// enviar mensagem de alerta/erro
 
 			} else if (tipo.getId() == null) {
 				tipoDao.salvar(tipo);
@@ -146,7 +159,8 @@ public class TipoMB implements Serializable {
 
 		tipo = tipoDao.getPrimaryKey(tipo);
 
-		return "/pages/visualizaPet.faces";
+
+		return "/pages/visualizaTipo.faces";
 	}
 
 
@@ -155,6 +169,7 @@ public class TipoMB implements Serializable {
 		try {
 
 			if (tipo == null) {
+
 				// enviar mensagem de alerta erro
 			} else {
 				tipoDao.excluir(tipo);
