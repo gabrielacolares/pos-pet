@@ -13,8 +13,10 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SelectableDataModel;
 import org.primefaces.model.SortOrder;
 
+import br.com.pet.dao.ClienteDAO;
 import br.com.pet.dao.PetDAO;
 import br.com.pet.dao.DAOException;
+import br.com.pet.dao.TipoDAO;
 import br.com.pet.model.Pet;
 import br.com.pet.util.Filtro;
 import br.com.pet.util.FiltroPet;
@@ -38,6 +40,25 @@ public class PetMB implements Serializable {
 	private LazyDataModel<Pet> model;
 	private SelectableDataModel<Pet> select;
 	private List<Pet> petsAtivos;
+	private Integer clienteSelecionado;
+	private Integer tipoSelecionado;
+	
+	
+	public Integer getClienteSelecionado() {
+		return clienteSelecionado;
+	}
+
+	public void setClienteSelecionado(Integer clienteSelecionado) {
+		this.clienteSelecionado = clienteSelecionado;
+	}
+
+	public Integer getTipoSelecionado() {
+		return tipoSelecionado;
+	}
+
+	public void setTipoSelecionado(Integer tipoSelecionado) {
+		this.tipoSelecionado = tipoSelecionado;
+	}
 	
 	public PetMB() {
 		model = new LazyDataModel<Pet>() {
@@ -124,6 +145,8 @@ public class PetMB implements Serializable {
 	public String editar() throws DAOException {
 
 		pet = petDao.getPrimaryKey(pet);
+		clienteSelecionado = pet.getCliente().getId().intValue(); 
+		
 		return "/pages/cadastraPet.faces?faces-redirect=true";
 	}
 
@@ -135,7 +158,8 @@ public class PetMB implements Serializable {
 	public String visualizar() throws DAOException {
 
 		pet = petDao.getPrimaryKey(pet);
-
+		clienteSelecionado = pet.getCliente().getId().intValue();
+		
 		return "/pages/visualizaPet.faces";
 	}
 
@@ -162,6 +186,18 @@ public class PetMB implements Serializable {
 	public String voltar() {
 
 		return "/pages/buscaPet.faces";
+	}
+	
+	public void enviarCli(){
+		
+		pet.setCliente(new ClienteDAO().getPrimaryKey(clienteSelecionado));	
+		
+	}
+	
+	public void enviarTi(){
+		
+		pet.setTipo(new TipoDAO().getPrimaryKey(tipoSelecionado));	
+		
 	}
 
 }

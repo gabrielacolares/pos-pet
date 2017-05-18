@@ -25,6 +25,9 @@ public class Pet extends AbstractEntity{
 	@ManyToOne
 	private Tipo tipo;
 	
+	@ManyToOne
+	private Cliente cliente;
+	
 	
 	public String getNome() {
 		return nome;
@@ -57,7 +60,15 @@ public class Pet extends AbstractEntity{
 	public void setObservacao(String observacao) {
 		this.observacao = observacao;
 	}
+	
+	
 
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	@Override
 	public Long getId() {
 		// TODO Auto-generated method stub

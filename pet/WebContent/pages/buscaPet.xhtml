@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -15,10 +15,10 @@
 			<p:messages id= "messages" showDetail="true" autoUpdate="true" closable="true"/>
 
 			<h4>
-				<p:outputLabel value="Lista de Clientes" />
+				<p:outputLabel value="Lista de Pets" />
 			</h4>
 			<div align="right">
-				<p:commandLink action="#{clienteMB.cadastrar}">
+				<p:commandLink action="#{petMB.cadastrar}">
 					<p:graphicImage url="/resources/img/cadastrar.png"
 						title="Cadastrar" />
 				</p:commandLink>
@@ -27,43 +27,43 @@
 			
 	<h:panelGrid></h:panelGrid>
 			<h:panelGrid columns="3">
-				<p:inputText value="#{clienteMB.filtro.nome}" id="nome" />
+				<p:inputText value="#{petMB.filtro.nome}" id="nome" />
 				<p:commandButton value="Consultar" update="lista" process="@form" />
 			</h:panelGrid>
 	<h:panelGrid></h:panelGrid>
 	
-			<p:dataTable value="#{clienteMB.model}" lazy="true" var="cliente"
+			<p:dataTable value="#{petMB.model}" lazy="true" var="pet"
 				paginator="true" rows="10" paginatorPosition="bottom" id="lista">
 
-				<p:column headerText="Nome" sortBy="#{cliente.nome}">
-					<p:outputLabel value="#{cliente.nome}" />
+				<p:column headerText="Nome" sortBy="#{pet.nome}">
+					<p:outputLabel value="#{pet.nome}" />
 				</p:column>
-				<p:column headerText="CPF">
-					<p:outputLabel value="#{cliente.cpf}" />
+				<p:column headerText="Raça">
+					<p:outputLabel value="#{pet.raca}" />
 				</p:column>
-				<p:column headerText="Telefone">
-					<p:outputLabel value="#{cliente.telefone}" />
+				<p:column headerText="Cor">
+					<p:outputLabel value="#{pet.cor}" />
 				</p:column>
-				<p:column headerText="Endereco">
-					<p:outputLabel value="#{cliente.endereco}" />
+				<p:column headerText="Observação">
+					<p:outputLabel value="#{pet.observacao}" />
 				</p:column>
 
-				<p:column headerText="AÃ§Ãµes" style="text-align: center">
+				<p:column headerText="Ações" style="text-align: center">
 
-					<p:commandLink action="#{clienteMB.visualizar}">
+					<p:commandLink action="#{petMB.visualizar}">
 						<p:graphicImage url="/resources/img/glyphicons_027_search.png"
 							title="Visualizar" />
-						<f:setPropertyActionListener value="#{cliente}"
-							target="#{clienteMB.cliente}" />
+						<f:setPropertyActionListener value="#{pet}"
+							target="#{petMB.pet}" />
 					</p:commandLink>
 
 					<h:outputText value="   " />
 
-					<p:commandLink action="#{clienteMB.editar}">
+					<p:commandLink action="#{petMB.editar}">
 						<p:graphicImage url="/resources/img/glyphicons_030_pencil.png"
 							title="Editar" />
-						<f:setPropertyActionListener value="#{cliente}"
-							target="#{clienteMB.cliente}" />
+						<f:setPropertyActionListener value="#{pet}"
+							target="#{petMB.pet}" />
 					</p:commandLink>
 
 					<h:outputText value="   " />

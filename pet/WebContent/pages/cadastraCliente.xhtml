@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -29,7 +29,7 @@
 						<p:outputLabel for="rg" value="RG" />
 						<p:inputText id="rg" value="#{clienteMB.cliente.rg}" />
 						
-						<p:outputLabel for="logradouro" value="Endereço" />
+						<p:outputLabel for="logradouro" value="EndereÃ§o" />
 						<p:inputText id="logradouro" name="lgradouro"
 							value="#{clienteMB.cliente.endereco}" />
 							
@@ -38,7 +38,7 @@
 							value="#{clienteMB.cliente.telefone}" />
 					</h:panelGrid>
 	
-			<p:outputLabel value="* campos obrigatórios" />
+			<p:outputLabel value="* campos obrigatÃ³rios" />
 			<center>
 				<p:commandButton id="salvar" value="Salvar" ajax="false"
 					actionListener="#{messagesViewMB.info}" action="#{clienteMB.salvar}">

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -19,12 +19,13 @@
 				</h4>
 			</div>
 					<h:panelGrid columns="6" cellpadding="10">
-						<p:outputLabel for="cliente" value="Cliente" />
+						<p:outputLabel value="Cliente" for="cliente"/>
 						<h:panelGroup>
-							<p:selectOneMenu id="cliente" value="#{clienteMB.clienteSelecionado}" required="true">
+							<p:selectOneMenu id="cliente" value="#{petMB.clienteSelecionado}" required="true">
 								<f:selectItem itemLabel="Selecione um cliente"/>
 								<f:selectItems value="#{clienteMB.clientesAtivos}" var="cliente" 
-								itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />													
+								itemLabel="#{cliente.nome}" itemValue="#{cliente.id}" />
+								<p:ajax listener="#{petMB.enviarCli}"/>													
 							</p:selectOneMenu>	
 						</h:panelGroup>
 			
@@ -34,29 +35,30 @@
 						
 						<p:outputLabel for="tipo" value="Tipo" />
 						<h:panelGroup>
-							<p:selectOneMenu id="tipo" value="#{tipoMB.tipoSelecionado}" required="true">
+							<p:selectOneMenu id="tipo" value="#{petMB.tipoSelecionado}" required="true">
 								<f:selectItem itemLabel="Selecione um tipo"/>
 								<f:selectItems value="#{tipoMB.tiposAtivos}" var="tipo" 
 								itemLabel="#{tipo.nome}" itemValue="#{tipo.id}" />													
-								
+								<p:ajax listener="#{petMB.enviarTi}"/>	
 							</p:selectOneMenu>	
 						</h:panelGroup>
 							
-						<p:outputLabel for="raca" value="Raça" />
+						<p:outputLabel for="raca" value="RaÃ§a" />
 						<p:inputText id="raca" value="#{petMB.pet.raca}" />
 						
 						<p:outputLabel for="cor" value="Cor" />
 						<p:inputText id="cor" name="cor"
 							value="#{petMB.pet.cor}" />
 							
-						<p:outputLabel for="observacao" value="Observação" />
+						<p:outputLabel for="observacao" value="ObservaÃ§Ã£o" />
 						<p:inputText id="observacao" name="observacao"
 							value="#{petMB.pet.observacao}" />
 					</h:panelGrid>
 	
-			<p:outputLabel value="* campos obrigatórios" />
+			<p:outputLabel value="* campos obrigatÃ³rios" />
 			<center>
-				<p:commandButton id="salvar" value="Salvar" ajax="false"
+					
+				<p:commandButton id="salvar" value="Salvar"
 					actionListener="#{messagesViewMB.info}" action="#{petMB.salvar}">
 				</p:commandButton>
 			</center>
